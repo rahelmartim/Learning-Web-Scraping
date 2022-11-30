@@ -18,9 +18,8 @@ def get_all_page_news(soup_page):
     news = []
 
     for post in soup_page.find_all("div", {"class": "post-outer"}):   
-        item =  dict()
-        item['tag'] = post.find("span", {"class": "label"}).string        
-        item['title'] = post.find("h2", {"class": "entry-title"}).a.string    
+        item = {'tag': post.find("span", {"class": "label"}).string}
+        item['title'] = post.find("h2", {"class": "entry-title"}).a.string
         item['author'] = post.find("span", {"class": "author"}).a.string
         news.append(item)
 
